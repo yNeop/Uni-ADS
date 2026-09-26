@@ -1,0 +1,29 @@
+1. Requisitos Funcionais
+
+RF01
+O sistema deve permitir que clientes adicionem produtos ao carrinho de compras.
+
+RF02
+O sistema deve permitir que clientes efetuem pagamentos online.
+
+RF03
+O sistema deve enviar confirmação do pedido após a finalização da compra.
+
+RF04
+O sistema deve atualizar automaticamente a quantidade de produtos no estoque após cada venda.
+
+RF05
+O sistema deve impedir compras de produtos indisponíveis em estoque.
+
+===================================================================================================
+
+2. Requisitos Não Funcionais
+
+RNF01
+O sistema deve garantir segurança nas transações de pagamento.
+
+RNF02
+O sistema deve atualizar o estoque em tempo real.
+
+RNF03
+O sistema deve possuir interface amigável e responsiva para dispositivos móveis e desktop.

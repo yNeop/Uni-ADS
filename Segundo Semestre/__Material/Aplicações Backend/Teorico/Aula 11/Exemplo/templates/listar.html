@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Clientes</title>
+</head>
+<body>
+
+    <h1>Lista de Clientes</h1>
+
+    <button onclick="carregarClientes()">
+        Carregar Clientes
+    </button>
+
+    <br><br>
+
+    <div id="resultado"></div>
+
+    <br>
+
+    <a href="/">
+        Voltar
+    </a>
+
+
+    <script>
+
+        function carregarClientes() {
+
+            fetch('/clientes')
+
+            .then(function(resposta) {
+                return resposta.json();
+            })
+
+            .then(function(clientes) {
+
+                let texto = "";
+
+                clientes.forEach(function(cliente) {
+
+                    texto += `
+
+                        <div>
+
+                            <p>
+                                ID: ${cliente.id}
+                                <br>
+
+                                Nome:
+                                <input
+                                    type="text"
+                                    id="nome-${cliente.id}"
+                                    value="${cliente.nome}"
+                                >
+
+                                <br><br>
+
+                                Email:
+                                <input
+                                    type="email"
+                                    id="email-${cliente.id}"
+                                    value="${cliente.email}"
+                                >
+                            </p>
+
+
+                            <button onclick="editarCliente(${cliente.id})">
+                                Alterar
+                            </button>
+
+
+                            <button onclick="deletarCliente(${cliente.id})">
+                                Deletar
+                            </button>
+
+                            <hr>
+
+                        </div>
+                    `;
+
+                });
+
+                document.getElementById("resultado").innerHTML = texto;
+
+            });
+
+        }
+
+
+        function editarCliente(id) {
+
+            let nome = document.getElementById(`nome-${id}`).value;
+            let email = document.getElementById(`email-${id}`).value;
+
+
+            fetch(`/clientes/${id}`, {
+
+                method: 'PUT',
+
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+
+                body: JSON.stringify({
+                    nome: nome,
+                    email: email
+                })
+
+            })
+
+            .then(function(resposta) {
+                return resposta.json();
+            })
+
+            .then(function(dados) {
+
+                alert(dados.mensagem);
+
+                carregarClientes();
+
+            });
+
+        }
+
+
+        function deletarCliente(id) {
+
+            let confirmar = confirm(
+                'Deseja realmente deletar este cliente?'
+            );
+
+            if(confirmar) {
+
+                fetch(`/clientes/${id}`, {
+                    method: 'DELETE'
+                })
+
+                .then(function(resposta) {
+                    return resposta.json();
+                })
+
+                .then(function(dados) {
+
+                    alert(dados.mensagem);
+
+                    carregarClientes();
+
+                });
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

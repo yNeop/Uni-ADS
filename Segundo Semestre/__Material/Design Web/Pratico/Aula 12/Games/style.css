@@ -1,0 +1,453 @@
+/* ==========================================
+   CONFIGURAÇÕES GERAIS E RESETS
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #1b2838;
+    color: #c7d5e0;
+    font-size: 14px;
+}
+
+a {
+    color: #66c0f4;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+ul {
+    list-style: none;
+    margin-top: 15px;
+}
+
+/* ==========================================
+   HEADER AND NAVIGATION
+   ========================================== */
+header {
+    background-color: #171a21;
+    color: #fff;
+    padding: 20px 5%;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+nav {
+    background-color: #171a21;
+    border-bottom: 1px solid #1a3a4c;
+    padding: 0 5%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin-top: 0; /* Remove a margem padrão de listas aqui */
+}
+
+nav ul li a {
+    display: block;
+    padding: 12px 15px;
+    color: #d2d2d2;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+nav ul li a:hover {
+    color: #fff;
+    background-color: #2a475e;
+}
+
+/* ==========================================
+   SISTEMA DE BUSCA (FORMS)
+   ========================================== */
+form {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 5%;
+    background: rgba(0, 0, 0, 0.2);
+    gap: 8px;
+}
+
+form input[type="search"] {
+    background-color: #16202d;
+    border: 1px solid #000;
+    border-radius: 3px;
+    color: #fff;
+    padding: 6px 12px;
+    outline: none;
+}
+
+form input[type="search"]:focus {
+    border-color: #66c0f4;
+}
+
+form button {
+    background: linear-gradient(to bottom, #a4e00a 0%, #abfc0e 100%); /* Verde Steam */
+    border: none;
+    border-radius: 3px;
+    color: #333;
+    font-weight: bold;
+    padding: 6px 15px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #fff;
+}
+
+.card-jogo {
+    background-color: #1f3347;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #2d4255;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    
+    /* MODIFICAÇÕES AQUI */
+    width: 100%;        /* Faz o card ser responsivo */
+    max-width: 460px;   /* Aumentamos de 300px para 460px (pode aumentar mais se quiser) */
+    margin: 30px auto;  /* Mais espaço nas margens superior e inferior */
+}
+
+.card-jogo:hover {
+    transform: translateY(-4px);
+    border-color: #66c0f4;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.card-img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-bottom: 2px solid #171a21;
+}
+
+.card-conteudo {
+    padding: 15px;
+}
+
+.card-conteudo h3 {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.card-conteudo .categoria {
+    color: #8f98a0;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px 10px;
+    border-radius: 3px;
+}
+
+.card-footer .preco {
+    color: #bfa14c; /* Tom dourado sutil para preços/gratuidade */
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.btn-comprar {
+    background: linear-gradient(to bottom, #75b022 5%, #588a1b 95%);
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-comprar:hover {
+    background: linear-gradient(to bottom, #93b826 5%, #75971e 95%);
+}
+
+/* ==========================================
+   ESTILOS ANTIGOS DO DESTAQUE (LOJA)
+   ========================================== */
+section {
+    display: flex;
+    padding: 30px 5%;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main {
+    flex: 3;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 4px;
+}
+
+aside {
+    flex: 1;
+    background-color: #121a24;
+    padding: 20px;
+    border-radius: 4px;
+    border-left: 2px solid #2a475e;
+}
+
+main ul li, aside ul li {
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-bottom: 8px;
+    border-radius: 3px;
+    transition: background 0.2s;
+}
+
+main ul li:hover, aside ul li:hover {
+    background-color: #2a475e;
+}
+
+main ul li a, aside ul li a {
+    display: block;
+    padding: 12px 15px;
+    font-weight: bold;
+}
+
+.loja-destaques h2 {
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.loja-destaques ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.loja-destaques ul li {
+    flex: 1 1 calc(25% - 15px);
+    min-width: 180px;
+    background-color: #1f3347;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.loja-destaques ul li a {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.loja-destaques ul li a img {
+    width: 100%;          
+    aspect-ratio: 16 / 9; 
+    object-fit: contain;
+    background-color: #0b1119;
+    padding: 5px;
+}
+
+.loja-destaques ul li a span {
+    display: block;
+    padding: 10px;
+    color: #c7d5e0;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.loja-destaques ul li:hover a span {
+    color: #fff;
+}
+
+/* ==========================================
+   LAYOUT DA PERFIL
+   ========================================== */
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: linear-gradient(135deg, #1f3347 0%, #111923 100%);
+    padding: 30px;
+    border-radius: 5px;
+    border: 1px solid #2a475e;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 4px;
+    border: 2px solid #66c0f4;
+    background-color: #171a21;
+}
+
+.profile-info h1 {
+    color: #fff;
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+.profile-info p {
+    color: #8f98a0;
+    margin-bottom: 15px;
+}
+
+.edit-btn {
+    background-color: #2a475e;
+    color: #66c0f4;
+    border: 1px solid #3a6385;
+    padding: 8px 16px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.edit-btn:hover {
+    color: #fff;
+    background-color: #385d7a;
+}
+
+/* ==========================================
+   LAYOUT DA BIBLIOTECA
+   ========================================== */
+.biblioteca-container {
+    display: flex;
+    padding: 20px 3%;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.biblioteca-lateral {
+    flex: 1;
+    min-width: 250px;
+    background-color: #171a21;
+    padding: 15px;
+    border-radius: 4px;
+    border: none;
+}
+
+.biblioteca-lateral form {
+    padding: 0;
+    margin-bottom: 15px;
+    background: transparent;
+}
+
+.biblioteca-lateral form input {
+    width: 100%;
+}
+
+.biblioteca-lateral h3 {
+    color: #8f98a0;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.lista-jogos li {
+    background: transparent;
+    margin-bottom: 4px;
+}
+
+.lista-jogos li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 8px;
+    border-radius: 3px;
+    color: #b8b6b4;
+}
+
+.lista-jogos li:hover a {
+    background-color: #2a475e;
+    color: #fff;
+}
+
+.game-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    border-radius: 3px;
+    background-color: #1b2838;
+}
+
+.biblioteca-principal {
+    flex: 3;
+    background-color: rgba(23, 26, 33, 0.7);
+    padding: 25px;
+    border-radius: 4px;
+}
+
+.biblioteca-principal h2 {
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.recentes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.recentes-grid li {
+    flex: 1 1 calc(33.333% - 20px);
+    min-width: 220px;
+    background-color: #202d39;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0;
+    border: 1px solid #2d4255;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.recentes-grid li:hover {
+    transform: translateY(-2px);
+    border-color: #66c0f4;
+    background-color: #2a3f54;
+}
+
+.recentes-grid li a {
+    display: flex;
+    flex-direction: column;
+}
+
+.recentes-grid li a img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-bottom: 2px solid #171a21;
+}
+
+.jogo-info {
+    padding: 12px;
+}
+
+.jogo-info strong {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.jogo-info p {
+    color: #8f98a0;
+    font-size: 12px;
+}

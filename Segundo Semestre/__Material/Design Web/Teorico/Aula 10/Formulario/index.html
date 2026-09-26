@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>From</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div>
+            <h2>Cadastro de Emprego</h2>
+
+            <form action="">
+                <fieldset class="dados_pessoais">
+                    <legend>Dados Pessoais</legend>
+
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" placeholder="Digite aqui...">
+
+                    <label for="birthdayDate">Data de Nascimento:</label>
+                    <input type="date" placeholder="Digite aqui...">
+
+                    <label for="sexo">Sexo:</label>
+                    <input type="radio" name="sexo" value="masculino">Masculino<br>
+                    <input type="radio" name="sexo" value="feminino">Feminino
+
+                    <label for="email">Email:</label>
+                    <input type="email" placeholder="Digite aqui...">
+
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" placeholder="Digite aqui...">
+
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" placeholder="Digite aqui...">
+
+                    <label for="escolaridade">Escolaridade:</label>
+                    <select name="escolaridade" id="escolaridade">
+                        <option value="1">Segundo Grau Completo</option>
+                        <option value="2">Graduação Imcompleta</option>
+                        <option value="3">Graduação Completa</option>
+                        <option value="4">Pós Graduação</option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="experiencia">
+                    <legend>Experiência</legend>
+                    <label for="linguagem">Línguagens que domina:</label>
+                    <input type="checkbox" name="java">Java <br>
+                    <input type="checkbox" name="python">Python <br>
+                    <input type="checkbox" name="c++">C++ <br>
+                    <input type="checkbox" name="cobol">Cobol <br>
+                    <input type="checkbox" name="outras">Outras <br>
+                    <input type="text" name="linguagem" placeholder="Digite aqui...">
+
+                    <label for="experiencia">Conte sua experiência profissional:</label>
+                    <textarea name="experiencia" id="experiencia" placeholder="Digite aqui..."></textarea>
+                </fieldset>
+
+                <fieldset class="envio">
+                    <legend>Envio</legend>
+                    <input type="checkbox" name="banco">Quero fazer parte do Banco de Talentos
+
+                    <button type="submit">Cadastrar</button>
+                </fieldset>
+            </form>
+        </div>
+        <script>
+            const textarea = document.querySelector('textarea');
+
+            textarea.addEventListener('input', function() {
+                // Reseta a altura para recalcular corretamente caso o texto diminua
+                this.style.height = 'auto';
+        
+                // Define a nova altura baseada no tamanho do conteúdo interno
+                this.style.height = this.scrollHeight + 'px';
+            });
+        </script>
+    </body>
+</html>

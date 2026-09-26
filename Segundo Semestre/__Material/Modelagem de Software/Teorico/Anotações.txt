@@ -1,0 +1,156 @@
+# Engenharia de Software é pré-requisito para Modelagem de Software
+Planejamento > Análise > Design > Desenvolver / Implementar > Testar > Manutenção > Planejamento...
+# Estamos fodidos
+
+#########################################################################################################################
+
+' Aula 01
+
+O QUE É? PARA QUE SERVE?:
+A Modelagem de Software Orientada a Objetos é uma abordagem que representa sistemas como um conjunto de objetos que 
+interagem entre si, cada um reunindo dados e comportamentos relacionados, aproximando a estrutura do software à forma 
+como elementos do mundo real funcionam.
+    - Facilita a compreensão de sistemas complexos
+    - Promove reutilização de código e manutenibilidade
+    - Permite melhor comunicação entre equipes
+    - Reduz riscos no desenvolvimento
+
+O QUE É UML?:
+Definição*
+    UML (Unified Modeling Language) é uma linguagem padronizada para modelagem de software.
+Origem*
+    Criada nos anos 90 por Booch, Jacobson e Rumbaugh.
+Propósito*
+    NÃO é uma linguagem de programação, mas auxilia no desenvolvimento.
+
+POR QUE USAR UML? / FERRAMENTAS PARA CRIAR DIAGRAMAS UML:
+Visualização, Comunicação, Documentação e Padronização 
+# Mais detalhes nos Slides
+Lucidchart, StarUML, Enterprise Architect e Draw.io
+# Mais detalhes nos Slides
+
+O PAPEL DOS REQUISITOS NA MODELAGEM DE SOFTWARE:
+Tipos de requisitos*
+    Funcionais: Definem o que o sistema deve fazer.
+    Não Funcionais: Características como desempenho e segurança.
+    # Lembre de Engenharia de Software, é o mesmo assunto.
+Princípios OOP na Modelagem*
+    Encapsulamento, Abstração, Herança e Polimorfismo são representados em diagramas UML. Uma classe 'VeículoEletrico' 
+    herda características da classe 'Veículo', demonstrando reuso e extensibilidade.
+Aplicação Prática*
+    Em um sistema bancário, objetos como 'Conta', 'Cliente' e 'Transação' interagem entre si. A modelagem UML mapeia
+    essas relações através de diagramas de classe, mostrando como 'Cliente' pode ter múltiplas 'Contas' e realizar várias
+    'Transações'.
+Benefícios na Prática*
+    A modelagem orientada a objetos facilita a manutenção e evolução do sistema. Por exemplo, adicionar um novo tipo de
+    conta bancária requer apenas estender a classe base 'Conta', sem modificar o código existente.
+
+# TESTE DUAS AULAS ANTES DA PROVA01
+
+DIAGRAMAS UML
+Estruturais = Classe, Objeto, Pacote.
+Comportamentais = Caso de Uso, Estado, Sequência, Atividade.
+Interação = Comunicação, Tempo.
+
+DIAGRAMA DE CASO DE USO / DIAGRAMA DE CLASSES / DIAGRAMA DE OBJETOS / DIAGRAMA DE ESTADO / DIAGRAMA DE SEQUENCIA
+(VISÃO GERAL) # NOS SLIDES
+
+##########################################################################################################################
+##########################################################################################################################
+##########################################################################################################################
+
+Aula 2 - Modelagem Software Orientado a Objetos
+
+A modelagem a partir de código existente consiste em:
+
+    01 - Análise do código – Examinar o código-fonte para entender seu funcionamento e identificar atores e casos de uso.
+    02 - Mapeamento – Relacionar os elementos identificados, definindo como interagem entre si.
+    03 - Diagramação – Utilizar uma ferramenta como o Visual Paradigm para criar o diagrama correspondente.
+
+Para começar, recomenda-se usar um código simples, como um sistema de login, e modelar o sistema com base nele.
+
+##########################################################################################################################
+
+A modelagem a partir de requisitos envolve:
+
+    01 - Análise de requisitos – Avaliar as necessidades do sistema, identificando os atores e seus papéis.
+    02 - Diagramação – Criar o diagrama de caso de uso no Visual Paradigm, detalhando as interações.
+
+Como exemplo, pode-se utilizar um sistema de biblioteca online, modelando funções como busca, cadastro e reserva com base
+nos requisitos definidos.
+
+##########################################################################################################################
+
+A modelagem a partir de tabelas de banco de dados envolve:
+
+    01 - Análise das tabelas – Examinar estruturas como produtos, clientes, pedidos e a tabela intermediária itens_pedido,
+    identificando chaves primárias e estrangeiras.
+    02 - Identificação de entidades – Converter as tabelas em classes, como Produto, Cliente e Pedido, com seus respectivos
+    atributos.
+    03 - Mapeamento de atributos – Definir os atributos nas classes (id, nome, preço, etc.) com seus tipos e métodos de
+    acesso.
+    04 - Definição de relacionamentos – Estabelecer as associações, como Cliente (1:N) Pedido e Pedido (N:N) Produto.
+
+Observação: A tabela intermediária (itens_pedido) representa o relacionamento entre Pedido e Produto, não sendo necessari-
+amente uma classe principal.
+
+!! DESENHO NO CADERNO !!
+
+##########################################################################################################################
+
+Modelagem a partir de Código:
+
+Veja no PDF da aula.
+
+##########################################################################################################################
+
+A criação de um diagrama de caso de uso envolve:
+
+    01 - Análise do código – Estudar o código-fonte para entender sua estrutura e funcionamento.
+    02 - Identificação dos elementos – Definir os atores e os casos de uso.
+    03 - Modelagem no Visual Paradigm – Criar o diagrama de caso de uso na ferramenta.
+    04 - Discussão comparativa – Comparar os diagramas produzidos para ampliar o aprendizado.
+
+A atividade ajuda a transformar o código em uma representação visual de suas funcionalidades por meio da UML.
+
+##########################################################################################################################
+
+O Diagrama de Caso de Uso é uma ferramenta da UML utilizada para modelar requisitos, mostrando as interações entre usuários
+e sistema.
+
+Atores:
+    Primário - inicia a interação (ex.: cliente).
+    Secundário - apoia o processo (ex.: sistema de pagamento).
+
+Casos de uso:
+    Representam ações relevantes para o usuário, descritas com verbos no infinitivo (ex.: “Realizar Pagamento”), sempre
+    com objetivo claro e geração de valor.
+
+Relações:
+    Inclusão (include): um caso de uso sempre chama outro.
+    Extensão (extend): ocorre opcionalmente, dependendo de condição.
+    Generalização: relação hierárquica entre casos de uso, semelhante à herança.
+
+##########################################################################################################################
+
+A Relação de Inclusão (≪include≫) é obrigatória:
+
+O caso de uso incluído sempre é executado quando o caso de uso base ocorre.
+Exemplo: Em um sistema de e-commerce, “Finalizar Compra” sempre inclui “Autenticar Usuário”.
+Regra: O fluxo principal não pode acontecer sem executar o caso de uso incluído, tornando a relação mandatória.
+
+##########################################################################################################################
+##########################################################################################################################
+##########################################################################################################################
+
+Aula 3 - NOTAS IMPORTANTES
+
+Classe é uma representação de um Objeto que possui Atributos e Ações. 
+As Classes não possuem Valores em seus Atributos. Por sua vez, os Objetos são a materialização de uma Classe. Ou seja 
+os Atributos possuem Valores.
+
+##########################################################################################################################
+##########################################################################################################################
+##########################################################################################################################
+
+Ele apenas lê os slides, não tem muito o que adicionar aqui ¯\_(ツ)_/¯

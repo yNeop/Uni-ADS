@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Pedidos - Officina do Sabor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+        <a href="/" class="voltar">Voltar para a Página Inicial</a>
+        <h1>Gestão de Pedidos</h1>
+
+        <form id="formPedido">
+            <h2>Registrar Novo Pedido</h2>
+            <div class="form-group">
+                <label for="cliente">Nome do Cliente</label>
+                <input type="text" id="cliente" required placeholder="Ex: João Silva">
+            </div>
+
+            <div class="form-group">
+                <label for="lanche">Sabor do Pastel</label>
+                <select id="lanche" required>
+                    <option value="Pastel de Queijo">Pastel de Queijo</option>
+                    <option value="Pastel de Queijo">Pastel de Presunto e Queijo</option>
+                    <option value="Pastel de Carne">Pastel de Carne</option>
+                    <option value="Pastel de Frango com Catupiry">Pastel de Frango com Catupiry</option>
+                    <option value="Pastel de Pizza">Pastel de Pizza</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="quantidade">Quantidade</label>
+                <input type="number" id="quantidade" min="1" value="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status Inicial</label>
+                <select id="status">
+                    <option value="pendente">Pendente</option>
+                    <option value="preparando">Preparando</option>
+                    <option value="pronto">Pronto</option>
+                    <option value="entregue">Entregue</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Salvar Pedido</button>
+        </form>
+
+        <button onclick="resetarBanco()" class="btn btn-warning" style="width: auto; float: right;">⚠️ Resetar
+            Identificadores (Truncate)</button>
+        <h2>Pedidos em Andamento</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>Pastel</th>
+                    <th>Qtd</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaPedidos">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const API_URL = '/api/pedidos';
+
+        document.addEventListener('DOMContentLoaded', carregarPedidos);
+
+        async function carregarPedidos() {
+            const res = await fetch(API_URL);
+            const pedidos = await res.json();
+            const tbody = document.getElementById('tabelaPedidos');
+            tbody.innerHTML = '';
+
+            pedidos.forEach(p => {
+                tbody.innerHTML += `
+                        <tr>
+                            <td><strong>#${p.id}</strong></td>
+                            <td>${p.cliente}</td>
+                            <td>${p.lanche}</td>
+                            <td>${p.quantidade}</td>
+                            <td>
+                                <select onchange="alterarStatus(${p.id}, this.value)" style="padding: 5px; width: auto;">
+                                    <option value="pendente" ${p.status === 'pendente' ? 'selected' : ''}>Pendente</option>
+                                    <option value="preparando" ${p.status === 'preparando' ? 'selected' : ''}>Preparando</option>
+                                    <option value="pronto" ${p.status === 'pronto' ? 'selected' : ''}>Pronto</option>
+                                    <option value="entregue" ${p.status === 'entregue' ? 'selected' : ''}>Entregue</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button onclick="deletarPedido(${p.id})" class="btn btn-delete">Remover</button>
+                            </td>
+                        </tr>
+                    `;
+            });
+        }
+
+        document.getElementById('formPedido').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const dados = {
+                cliente: document.getElementById('cliente').value,
+                lanche: document.getElementById('lanche').value,
+                quantidade: parseInt(document.getElementById('quantidade').value),
+                status: document.getElementById('status').value
+            };
+
+            const res = await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dados)
+            });
+
+            if (res.ok) {
+                document.getElementById('formPedido').reset();
+                carregarPedidos();
+            } else {
+                alert('Erro ao salvar o pedido.');
+            }
+        });
+
+        async function alterarStatus(id, novoStatus) {
+            const res = await fetch(`${API_URL}/${id}/status`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status: novoStatus })
+            });
+
+            if (!res.ok) {
+                alert('Erro ao atualizar status.');
+                carregarPedidos();
+            }
+        }
+
+        async function deletarPedido(id) {
+            if (confirm('Deseja realmente remover este pedido?')) {
+                const res = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+                if (res.ok) carregarPedidos();
+            }
+        }
+
+        async function resetarBanco() {
+            const confirmacao = confirm("ATENÇÃO: Isso apagará TODOS os pedidos do banco de dados e voltará o ID para 1. Deseja continuar?");
+
+            if (confirmacao) {
+                const res = await fetch(`${API_URL}/truncate`, { method: 'DELETE' });
+                const resultado = await res.json();
+
+                if (res.ok) {
+                    alert(resultado.message);
+                    carregarPedidos(); // Atualiza a tabela vazia
+                } else {
+                    alert(resultado.error || 'Erro ao resetar o banco de dados.');
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

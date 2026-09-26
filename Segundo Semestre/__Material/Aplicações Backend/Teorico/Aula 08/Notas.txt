@@ -1,0 +1,12 @@
+pip install requests
+
+Link API Localidade IBGE:
+
+https://servicodados.ibge.gov.br/api/docs/localidades
+
+Exemplo:
+https://servicodados.ibge.gov.br/api/v1/localidades/aglomeracoes-urbanas/00301
+
+Link API Dolar e Real:
+
+https://economia.awesomeapi.com.br/json/last/USD

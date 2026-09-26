@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+<h2>Recuperar Senha</h2>
+<form action="/trocar_senha" method="post">
+    <div class="mb-3">
+        <label>Nova Senha</label>
+        <input type="password" class="form-control" name="nova_senha" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Confirmar Nova Senha</label>
+        <input type="password" class="form-control" name="confirmar_senha" required>
+    </div>
+
+    <button class="btn btn-primary">Alterar Senha</button>
+    <a href="/" class="btn btn-secondary">Cancelar</a>
+</form>
+
+{% endblock %}

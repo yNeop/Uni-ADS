@@ -1,0 +1,15 @@
+.container{
+    background-color: cadetblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 500px;
+}
+
+.item {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    background-color: white;
+}

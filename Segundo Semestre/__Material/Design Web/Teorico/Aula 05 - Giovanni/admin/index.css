@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background: #FFFFFF;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.menu a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: 0.2s;
+}
+
+.menu a:hover {
+    background: #e9ecef;
+}
+/* Área principal */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+/* Topbar */
+.topbar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 0 20px;
+    gap: 20px;
+    position: relative;
+}
+/* Barra de pesquisa */
+/* Barra de pesquisa alinhada à esquerda */
+.search {
+    width: 60%;
+    max-width: 700px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+}
+/* Usuário (canto direito) */
+.user {
+    position: absolute;
+    right: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+/* Conteúdo */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+/* Avatar no canto direito */
+.avatar {
+    position: absolute;
+    right: 20px; /* Cola no canto direito */
+    width: 40px;
+    height: 40px;
+    background: #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

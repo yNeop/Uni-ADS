@@ -1,0 +1,45 @@
+*Se errar no levantamento de requisitos, erra no software inteiro.
+
+*Milton Fit Delas.
+*Requisitos Funcionais:
+    O Sistema deve Conter Cadastro e Login de Usuario
+    O Sistema deve Analisar fotos e videos enviados pelo Usuario
+    O Sistema deve Retornar ao Usuario a analise feita
+    O Sistema deve Enviar um Feedback por E-mail
+    O Sistema deve Respeitar o Usuario
+    O Sistema deve Ser Compativel com Android e iOS
+    O Sistema deve Alertar o Usuario em casos de IMC abaixo ou acima do peso
+    O Sistema deve Dizer ao Usuario o que melhorar em seu físico
+    O Sistema deve Custar uma assinatura de R$ 10,00 / mês
+*Requisitos NÃO Funcionais:
+    O Sistema deve Responder rapidamente, em tempo real
+    O Sistema deve Respeitar o LGPD
+    O Sistema deve Ser Seguro, principalmente quanto a dados e fotos enviadas pelos Usuarios
+
+##############################################################################################################################
+
+*VERSÃO DO QUADRO DOS ALUNOS
+*Requisitos Funcionais:
+    Cadastro
+    Login
+    Upload img / vid
+    Formas de Pagamento
+    E-mail - Notficações
+    Armazenamento
+    Analise de Perfil
+    Diagnostico
+    Dashboard
+    Assinatura
+    Feedback
+    Chat / i.a
+    Revisão pelo Personal
+*Requisitos NÃO Funcionais:
+    Disponibilidade
+    Ser rapido
+    Segurança
+    Tempo de resposta
+    Usabilidade
+
+##############################################################################################################################
+
+*Hora do Caso de Uso

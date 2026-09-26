@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <!-- Bloco de Login -->
+    <div id="login-container">
+        <h2>Login</h2>
+        <input type="text" id="usuario"
+            placeholder="Usuario">
+        <input type="password"
+        id="senha"
+            placeholder="Senha">
+        <button onclick="fazerLogin()">
+            Entrar
+        </button>
+        <p id="erro"></p>
+    </div>
+    <!-- Bloco de Sistema -->
+    <div id="sistema"
+        style="display: none;">
+        <div id="header"></div>
+        <div class="conteudo">
+            <h1>Bem Vindo!</h1>
+            <p>Login realizado com sucesso!</p>
+        </div>
+    </div>
+    <script src="javascript.js"></script>
+</body>
+</html>

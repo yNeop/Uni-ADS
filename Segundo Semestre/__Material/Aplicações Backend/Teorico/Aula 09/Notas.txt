@@ -1,0 +1,7 @@
+pip install flask
+
+>Python: Create Environment
+Venv
+Seleciona o interpretador
+
+Em caso de erro, pip install flask, novamente.

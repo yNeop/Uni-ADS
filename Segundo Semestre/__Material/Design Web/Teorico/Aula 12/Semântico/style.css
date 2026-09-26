@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    padding: 10px;
+    background-color: aliceblue;
+}
+
+nav {
+    padding: 10px;
+    background-color: aquamarine;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 8px;
+    color: black;
+    font-weight: bold;
+}
+
+section {
+    display: flex;
+    flex: 1;
+}
+
+main, aside {
+    flex: 1;
+    background-color: bisque;
+    padding: 10px;
+}
+
+main {
+    background-color: cadetblue;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 10px;
+}

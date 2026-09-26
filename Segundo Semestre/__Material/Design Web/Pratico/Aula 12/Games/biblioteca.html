@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>Stream Store</header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Loja</a></li>
+            <li><a href="biblioteca.html">Biblioteca</a></li>
+            <li><a href="perfil.html">Perfil</a></li>
+        </ul>
+    </nav>
+    <section class="biblioteca-container">
+    
+    <aside class="biblioteca-lateral">
+        <form action="/pesquisa" method="get">
+            <input type="search" name="q" placeholder="Pesquisar na biblioteca..." required>
+        </form>
+        
+        <h3>Meus Jogos</h3>
+        <ul class="lista-jogos">
+            <li>
+                <a href="#">
+                    <img src="imgs/cs2icon.png" alt="Ícone Jogo 2" class="game-icon">
+                    <span>Counter-Strike 2</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="imgs/cupheadicon.png" alt="Ícone Jogo 1" class="game-icon">
+                    <span>Cuphead</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="imgs/gow3icon.png" alt="Ícone Jogo 1" class="game-icon">
+                    <span>God of War III</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="imgs/gta6icon.png" alt="Ícone Jogo 3" class="game-icon">
+                    <span>Grand Theft Auto VI</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="imgs/tlou2icon.png" alt="Ícone Jogo 4" class="game-icon">
+                    <span>The Last of Us Part II Remastered</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="biblioteca-principal">
+        <h2>Jogados Recentemente</h2>
+        <ul class="recentes-grid">
+            <li>
+                <a href="#">
+                    <img src="imgs/gta6header.png" alt="Banner Jogo 1">
+                    <div class="jogo-info">
+                        <strong>Grand Theft Auto VI</strong>
+                        <p>Tempo de jogo: 10 horas</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="imgs/gow3header.png" alt="Banner Jogo 2">
+                    <div class="jogo-info">
+                        <strong>God of War III</strong>
+                        <p>Tempo de jogo: 5 horas</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="imgs/cs2header.png" alt="Banner Jogo 3">
+                    <div class="jogo-info">
+                        <strong>Counter-Strike 2</strong>
+                        <p>Tempo de jogo: 50000 horas</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </main>
+
+</section>
+</body>
+
+</html>
