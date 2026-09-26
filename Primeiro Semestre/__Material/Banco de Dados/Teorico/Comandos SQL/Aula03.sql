@@ -1,0 +1,168 @@
+/*
+	01. CRIAR UM BANDO DE DADOS CHAMADO:
+	"BibliotecaLeituraCerta".
+    
+    02. COLOCAR DATABASE EM USO
+*/
+CREATE DATABASE IF NOT EXISTS BibliotecaLeituraCerta;
+USE BibliotecaLeituraCerta;
+/*
+	03. CRIAR TABELAS.
+*/
+CREATE TABLE AUTORES (
+	ID INT NOT NULL PRIMARY KEY,
+    NOME VARCHAR(80) NOT NULL
+);
+CREATE TABLE LIVROS (
+	ID INT NOT NULL PRIMARY KEY,
+    TITULO VARCHAR(100) NOT NULL,
+    ANO_PUBLI INT NOT NULL,
+    ID_AUTOR INT NOT NULL,
+    FOREIGN KEY (ID_AUTOR) REFERENCES AUTORES(ID)
+);
+/*
+	04. ALTER TABLE
+*/
+ALTER TABLE LIVROS ADD COLUMN GENERO VARCHAR(50) NOT NULL;
+ALTER TABLE AUTORES ADD COLUMN NACIONALIDADE VARCHAR(100) NOT NULL;
+/*
+	05. INSERT
+*/
+INSERT INTO AUTORES (ID, NOME, NACIONALIDADE) VALUES
+(1, 'Machado de Assis', 'Brasileira'),
+(2, 'George Orwell', 'Britânica'),
+(3, 'Clarice Lispector', 'Brasileira');
+/*
+	06. INSERT
+*/
+INSERT INTO LIVROS (ID, TITULO, ANO_PUBLI, GENERO, ID_AUTOR) VALUES
+(1001, 'Dom Casmurro', 1899, 'Romance', 1),
+(2002, '1984', 1949, 'Distopia', 2),
+(3003, 'A Hora da Estrela', 1977, 'Distopia', 3),
+(4004, 'Memórias Póstumas de Brás Cubas', 1881, 'Distopia', 1);
+/*
+	07. UPDATE
+*/
+UPDATE LIVROS
+	SET ANO_PUBLI = 1978
+    WHERE ID = 3003;
+/*
+	08. DELETE
+*/
+DELETE FROM LIVROS WHERE ID = 4004;
+SELECT * FROM LIVROS;
+SELECT * FROM AUTORES;
+
+-- AULA 17.10.25.................
+
+/*
+	update altera dados da tabela, alter altera a estrutura
+    fisica da tabela.
+*/
+
+-- 01. CRIAR BANCO DE DADOS
+CREATE DATABASE IF NOT EXISTS DB_EXEMPLO;
+USE DB_EXEMPLO;
+
+-- 02. CRIAR TBELA PAIS
+DROP TABLE IF EXISTS PAIS;
+CREATE TABLE PAIS (
+    CODIGO CHAR(3) PRIMARY KEY,
+    NOME VARCHAR(50) NOT NULL,
+    CONTINENTE VARCHAR(30) NOT NULL,
+    POPULACAO BIGINT
+);
+
+-- 03. INSERIR REGISTROS NA TABELA PAIS
+INSERT INTO PAIS (CODIGO, NOME, CONTINENTE, POPULACAO) VALUES
+('ARG', 'Argentina', 'América do Sul', 45000000),
+('BOL', 'Bolívia', 'América do Sul', 11600000),
+('BRA', 'Brasil', 'América do Sul', 213000000),
+('CHL', 'Chile', 'América do Sul', 19200000),
+('COL', 'Colômbia', 'América do Sul', 50800000),
+('ECU', 'Equador', 'América do Sul', 17700000),
+('GUY', 'Guiana', 'América do Sul', 790000),
+('PRY', 'Paraguai', 'América do Sul', 7300000),
+('PER', 'Peru', 'América do Sul', 33800000),
+('SUR', 'Suriname', 'América do Sul', 600000),
+('URY', 'Uruguai', 'América do Sul', 3500000),
+('VEN', 'Venezuela', 'América do Sul', 28800000),
+('FLK', 'Ilhas Malvinas (Falkland)', 'América do Sul', 3000),
+('USA', 'Estados Unidos', 'América do Norte', 331000000),
+('CAN', 'Canadá', 'América do Norte', 38000000),
+('MEX', 'México', 'América do Norte', 128000000),
+('CHN', 'China', 'Ásia', 1402000000),
+('JPN', 'Japão', 'Ásia', 126000000),
+('IND', 'Índia', 'Ásia', 1393000000),
+('DEU', 'Alemanha', 'Europa', 83000000),
+('FRA', 'França', 'Europa', 67000000),
+('ITA', 'Itália', 'Europa', 60000000),
+('EGY', 'Egito', 'África', 102000000),
+('ZAF', 'África do Sul', 'África', 59000000),
+('AUS', 'Austrália', 'Oceania', 26000000),
+('NZL', 'Nova Zelândia', 'Oceania', 5000000);
+
+-- 04. CRIAR TABELA CIDADE
+DROP TABLE IF EXISTS CIDADE;
+CREATE TABLE CIDADE (
+    ID_CIDADE INT AUTO_INCREMENT PRIMARY KEY,
+    NOME VARCHAR(50) NOT NULL,
+    CODIGO_PAIS CHAR(3) NOT NULL,
+    POPULACAO INT,
+    FOREIGN KEY (CODIGO_PAIS) REFERENCES PAIS(CODIGO)
+);
+
+-- 05. INSERIR ALGUNS EXEMPLOS DE CIDADES
+INSERT INTO CIDADE (NOME, CODIGO_PAIS, POPULACAO) VALUES
+('São Paulo', 'BRA', 12300000),
+('Rio de Janeiro', 'BRA', 6740000),
+('Buenos Aires', 'ARG', 2890000),
+('Córdoba', 'ARG', 1390000),
+('Santiago', 'CHL', 5740000),
+('Lima', 'PER', 8850000),
+('Bogotá', 'COL', 7740000),
+('Caracas', 'VEN', 1940000),
+('La Paz', 'BOL', 764000),
+('Montevidéu', 'URY', 1310000),
+('Georgetown', 'GUY', 118000),
+('Paramaribo', 'SUR', 240000),
+('Asunción', 'PRY', 525000),
+('Washington D.C.', 'USA', 705000),
+('Toronto', 'CAN', 2930000);
+
+SELECT * FROM PAIS;
+SELECT * FROM CIDADE;
+
+SELECT NOME, POPULACAO FROM CIDADE ORDER BY NOME ASC;
+SELECT NOME, POPULACAO FROM CIDADE ORDER BY NOME DESC;
+
+SELECT NOME, POPULACAO FROM CIDADE ORDER BY POPULACAO ASC;
+SELECT NOME, POPULACAO FROM CIDADE ORDER BY POPULACAO DESC LIMIT 5;
+
+SELECT NOME, POPULACAO FROM PAIS ORDER BY POPULACAO DESC LIMIT 5;
+SELECT * FROM PAIS WHERE CONTINENTE = 'América do Sul';
+
+/*
+	OPERADORES LOGICOS
+    AND		= 	SOMENTE SERÁ VERDADEIRO SE TODAS AS CONDIÇÕES FOREM
+    OR 		= 	SERÁ VERDADEIRO SE UM "OU" OUTRO FOR
+    NOT 	= 	NÃO
+*/
+/*
+	OPERADORES RELACIONAIS
+    = 			IGUAL
+    > 			MAIOR
+    < 			MENOR
+    >= 			MAIOR OU IGUAL
+    <= 			MENOR OU IGUAL
+    <> 			DIFERENTE
+*/
+SELECT * FROM PAIS WHERE CONTINENTE = 'Asia' 
+OR CONTINENTE = 'Europa' ORDER BY CONTINENTE;
+
+SELECT * FROM CIDADE WHERE CODIGO_PAIS = 'BRA'
+OR CODIGO_PAIS = 'ARG' OR CODIGO_PAIS = 'CHL';
+
+-- ATIVIDADE - SELECIONE CIDADES COM MENOS DE 6 MILHÕES DA HABITANTES
+
+SELECT * FROM CIDADE WHERE POPULACAO < 6000000;

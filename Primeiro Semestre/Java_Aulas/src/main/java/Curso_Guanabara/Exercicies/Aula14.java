@@ -1,0 +1,293 @@
+// Estruturas condicionais parte 2
+package Curso_Guanabara.Exercicies;
+// @author Cauã Sousa
+import java.util.Scanner;
+import javax.swing.DefaultListModel;
+import java.util.Arrays;
+public class Aula14 {
+    public static void main(String[] args) {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        Scanner Exercicio14 = new Scanner(System.in);
+        Exercicies14.executar(Exercicio14);
+
+        ExerciciesPratics14 tela1 = new ExerciciesPratics14();
+        tela1.setVisible(true);
+        Exercicio14.close();
+    }
+}
+class Exercicies14 {
+    public static void executar(Scanner Exercicio14) {
+        System.out.println("01. Considerando o trecho de código em Java representado a seguir:\n");
+
+        System.out.println("int v[] = {2, 0, 3, 9};\n" +
+                           "v[v[2]] = v[v[1]];\n" +
+                           "for (int i: v) {\n" +
+                           "    System.out.print(i);\n" +
+                           "}\n");
+
+        System.out.println("O que será impresso na tela?\n");
+
+        System.out.println("a. 2 0 3 2");
+        System.out.println("b. 2 0 3 9");
+        System.out.println("c. 2 0 0 9");
+        System.out.println("d. 2 3 3 2");
+
+        String RespostaScann01 = Exercicio14.nextLine();
+        System.out.println();
+
+        boolean Resposta01 = RespostaScann01.equals("a");
+
+        if (Resposta01 == true) {
+            System.out.println("Certa Resposta!");
+        } else {
+            System.out.println("A Resposta correta era: a");
+        }
+        System.out.println("Aperte ENTER para continuar");
+        Exercicio14.nextLine();
+
+        // NEXT
+
+        System.out.println("02. Execute o trecho Java a seguir e marque a opção que contem o valor que será exibido " +
+        "na tela:\n");
+
+        System.out.println("String s = \"CURSOEMVIDEO\";\n" + 
+                           "char[] r = new char[12];\n" +
+                           "for (int c=s.lenght()-1; c>=0; c--) {\n" +
+                           "    r[c] = s.charAt(c);\n" +
+                           "}\n" +
+                           "for (char l: r) {\n" +
+                           "    System.out.print(l);\n" +
+                           "}\n");
+
+        System.out.println("O que será impresso na tela?");
+        System.out.print("Deseja exibir algoritmo? [s/n]: ");
+        char exibirAlgoritmo;
+
+        do {
+            exibirAlgoritmo = Exercicio14.next().toLowerCase().charAt(0);
+
+        } while (exibirAlgoritmo != 's' && exibirAlgoritmo != 'n');
+
+        if (exibirAlgoritmo == 's') {
+            String s = "CURSOEMVIDEO";
+            char[] r = new char[s.length()];
+
+            for (int c = s.length() - 1; c >= 0; c--) {
+                r[c] = s.charAt(c);
+            }
+
+            for (char l : r) {
+                System.out.print(l);
+            }
+            System.out.println();
+            System.out.print("\nAperte ENTER para continuar");
+            Exercicio14.nextLine();
+        }
+        Exercicio14.nextLine();
+        System.out.println();
+
+        System.out.println("a. OEDIVMEOSRUC");
+        System.out.println("b. CURSOEMVIDEO");
+        System.out.println("c. 01234567891011");
+        System.out.println("d. 11109876543210");
+
+        String RespostaScann02 = Exercicio14.nextLine();
+        System.out.println();
+
+        boolean Resposta02 = RespostaScann02.equals("b");
+
+        if (Resposta02 == true) {
+            System.out.println("Certa Resposta!");
+        } else {
+            System.out.println("A Resposta correta era: b");
+        }
+        System.out.println("Aperte ENTER para continuar");
+        Exercicio14.nextLine();
+    }
+    public static void main(String[] args) {
+        Scanner Exercicio14 = new Scanner(System.in);
+        Exercicies14.executar(Exercicio14);
+    }
+}
+class ExerciciesPratics14 extends javax.swing.JFrame {
+    
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ExerciciesPratics14.class.getName());
+    
+    int[] vetor = new int [5];
+    int selecionado = 0;
+    DefaultListModel<Integer> lista = new DefaultListModel<>();
+    
+    /**
+     * Creates new form ExerciciesPratics14
+     */
+    public ExerciciesPratics14() {
+        initComponents();
+
+        for (int c = 0; c < vetor.length; c++) {
+            lista.addElement(vetor[c]);
+        }
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        spinNum = new javax.swing.JSpinner();
+        btnAdicionar = new javax.swing.JButton();
+        btnRemover = new javax.swing.JButton();
+        btnOrdenar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        lblSelecionado = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listVetor = new javax.swing.JList<>();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        spinNum.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        btnAdicionar.setText("Adicionar");
+        btnAdicionar.addActionListener(this::btnAdicionarActionPerformed);
+
+        btnRemover.setText("Remover");
+        btnRemover.addActionListener(this::btnRemoverActionPerformed);
+
+        btnOrdenar.setText("Ordernar");
+        btnOrdenar.addActionListener(this::btnOrdenarActionPerformed);
+
+        jLabel1.setText("vetor");
+
+        lblSelecionado.setText("[0]");
+
+        listVetor.setModel(lista);
+        listVetor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listVetorMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(listVetor);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(spinNum, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblSelecionado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(spinNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(lblSelecionado)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAdicionar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRemover)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnOrdenar))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
+        );
+
+        pack();
+    }// </editor-fold>                                                      
+    
+    private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        vetor[selecionado] = Integer.parseInt(spinNum.getValue().toString());
+        lista.removeAllElements();
+        for (int c = 0; c < vetor.length; c++) {
+            lista.addElement(vetor[c]);
+        }
+    }                                            
+
+    private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        vetor[selecionado] = 0;
+        lista.removeAllElements();
+        for (int c = 0; c < vetor.length; c++) {
+            lista.addElement(vetor[c]);
+        }
+    }                                          
+
+    private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        Arrays.sort(vetor);
+        lista.removeAllElements();
+        for (int c = 0; c < vetor.length; c++) {
+            lista.addElement(vetor[c]);
+        }
+    }                                          
+
+    private void listVetorMouseClicked(java.awt.event.MouseEvent evt) {                                       
+        selecionado = listVetor.getSelectedIndex();
+        lblSelecionado.setText("[" + selecionado + "]");
+    }                                      
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> new ExerciciesPratics14().setVisible(true));
+    }
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton btnAdicionar;
+    private javax.swing.JButton btnOrdenar;
+    private javax.swing.JButton btnRemover;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblSelecionado;
+    private javax.swing.JList<Integer> listVetor;
+    private javax.swing.JSpinner spinNum;
+    // End of variables declaration                   
+}
